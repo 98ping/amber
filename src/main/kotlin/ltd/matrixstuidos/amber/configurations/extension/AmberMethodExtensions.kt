@@ -35,9 +35,7 @@ fun Method.default(): Any
 
 fun Method.key(): String
 {
-    if (this.isAnnotationPresent(
-            EntryName::class.java
-        ))
+    if (this.isAnnotationPresent(EntryName::class.java))
     {
         return this.getDeclaredAnnotation(EntryName::class.java).name
     }
