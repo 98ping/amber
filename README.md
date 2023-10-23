@@ -5,13 +5,13 @@ Amber is an annotation-based YAML library that utilizes interfaces to make clean
 # Usage
 
 To initialize amber, you need to use the function
-```
+```kotlin
 AmberConfigurationService.make(path, debugMode)
 ```
 The path would be the file location of where you want the YAML file to be stored. 
 
 To accept a new configuration into the service, you must make an interface and annotate it properly. A properly-annotated interface looks something like this:
-```
+```kotlin
 interface CustomersConfig
 {
     @EntryName("bob")
@@ -27,7 +27,7 @@ interface CustomersConfig
 ```
 
 Once you have setup this portion of the config, you can use the function:
-```
+```kotlin
 AmberConfigurationService.from(CustomersConfig::class.java, "yourFileName.yaml" )
 ```
 This function returns the interface so you can pull your values directly from the config.
