@@ -54,6 +54,21 @@ class YamlResourceContainer(
             {
                 return mapping.getInt(path)
             }
+
+            Double::class.java ->
+            {
+                return mapping.getDouble(path)
+            }
+
+            Long::class.java ->
+            {
+                return mapping.getLong(path)
+            }
+
+            Boolean::class.java ->
+            {
+                return mapping.getBoolean(path)
+            }
         }
 
         return null
