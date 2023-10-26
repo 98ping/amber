@@ -34,7 +34,7 @@ object AmberConfigurationService
         fileName: String
     ) : T
     {
-        val container = YamlResourceContainer(File(parentConfiguration.path + "\\$fileName"))
+        val container = YamlResourceContainer(File(parentConfiguration.path + "/$fileName"))
 
         val config = AmberConfiguration(
             interfaceClass,
