@@ -8,7 +8,7 @@ class YamlResourceContainer(
     destination: File,
 ) : ResourceContainer
 {
-    private var mapping: YamlFile = YamlFile(destination)
+    var mapping: YamlFile = YamlFile(destination)
 
     override fun load() : Boolean
     {

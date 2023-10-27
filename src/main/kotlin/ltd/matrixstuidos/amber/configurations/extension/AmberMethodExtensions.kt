@@ -49,7 +49,6 @@ fun Method.default(): Any
 }
 
 
-
 fun Method.key(): String
 {
     if (this.isAnnotationPresent(EntryName::class.java))
