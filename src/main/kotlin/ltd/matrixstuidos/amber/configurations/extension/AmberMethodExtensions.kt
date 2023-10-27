@@ -15,6 +15,7 @@ fun Method.pathway(): String
         return this.getDeclaredAnnotation(Path::class.java).directory
     }
 
+    // if we ever get to this point intrinsic path will take over
     return ""
 }
 
