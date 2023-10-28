@@ -18,6 +18,7 @@ rebel.xml
 
 #Internal tests
 test.yaml
+OtherConfig.yaml
 
 
 .gradle

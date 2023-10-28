@@ -1,3 +1,5 @@
+package test
+
 import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultString
 import ltd.matrixstuidos.amber.configurations.annotate.EntryName
 import ltd.matrixstuidos.amber.configurations.annotate.Intrinsic

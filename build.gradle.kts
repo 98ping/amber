@@ -17,12 +17,9 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
     implementation("org.reflections:reflections:0.10.2")
     implementation("com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4")
-
     implementation("com.google.code.gson:gson:2.10.1")
-
 
     testImplementation("com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4")
     testImplementation("com.google.code.gson:gson:2.10.1")

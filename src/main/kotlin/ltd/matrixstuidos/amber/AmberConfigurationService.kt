@@ -4,6 +4,7 @@ import ltd.matrixstuidos.amber.configurations.AmberConfiguration
 import ltd.matrixstuidos.amber.files.ResourceContainerService
 import ltd.matrixstuidos.amber.files.yaml.YamlResourceContainer
 import ltd.matrixstuidos.amber.internals.InternalAmberConfiguration
+import ltd.matrixstuidos.amber.registry.AutomaticRegistrationService
 import java.io.File
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
@@ -11,19 +12,22 @@ import kotlin.properties.Delegates
 
 object AmberConfigurationService
 {
-    private lateinit var parentConfiguration: InternalAmberConfiguration
+    lateinit var parentConfiguration: InternalAmberConfiguration
     var debugMode by Delegates.notNull<Boolean>()
 
     fun make(
         path: String,
+        parentPackage: String,
         debug: Boolean
     ) : InternalAmberConfiguration
     {
         this.parentConfiguration = InternalAmberConfiguration(
-            path
+            path,
+            parentPackage
         )
 
         this.debugMode = debug
+        AutomaticRegistrationService.onInitialScan()
 
         return parentConfiguration
     }
