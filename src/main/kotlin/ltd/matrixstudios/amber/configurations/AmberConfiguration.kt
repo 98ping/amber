@@ -1,13 +1,13 @@
-package ltd.matrixstuidos.amber.configurations
+package ltd.matrixstudios.amber.configurations
 
-import ltd.matrixstuidos.amber.configurations.annotate.Intrinsic
-import ltd.matrixstuidos.amber.configurations.annotate.Path
-import ltd.matrixstuidos.amber.configurations.extension.default
-import ltd.matrixstuidos.amber.configurations.extension.key
-import ltd.matrixstuidos.amber.configurations.extension.pathway
-import ltd.matrixstuidos.amber.configurations.node.ConfigurationNode
-import ltd.matrixstuidos.amber.files.ResourceContainer
-import ltd.matrixstuidos.amber.files.yaml.YamlResourceContainer
+import ltd.matrixstudios.amber.configurations.annotate.Intrinsic
+import ltd.matrixstudios.amber.configurations.annotate.Path
+import ltd.matrixstudios.amber.configurations.extension.default
+import ltd.matrixstudios.amber.configurations.extension.key
+import ltd.matrixstudios.amber.configurations.extension.pathway
+import ltd.matrixstudios.amber.configurations.node.ConfigurationNode
+import ltd.matrixstudios.amber.files.ResourceContainer
+import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
 

@@ -1,11 +1,11 @@
-package ltd.matrixstuidos.amber.configurations.extension
+package ltd.matrixstudios.amber.configurations.extension
 
-import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultString
-import ltd.matrixstuidos.amber.configurations.annotate.EntryName
-import ltd.matrixstuidos.amber.configurations.annotate.Path
-import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultBoolean
-import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultDouble
-import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultInteger
+import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultString
+import ltd.matrixstudios.amber.configurations.annotate.EntryName
+import ltd.matrixstudios.amber.configurations.annotate.Path
+import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultBoolean
+import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultDouble
+import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultInteger
 import java.lang.reflect.Method
 
 fun Method.pathway(): String

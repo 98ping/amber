@@ -1,6 +1,6 @@
-package ltd.matrixstuidos.amber.files.yaml
+package ltd.matrixstudios.amber.files.yaml
 
-import ltd.matrixstuidos.amber.files.ResourceContainer
+import ltd.matrixstudios.amber.files.ResourceContainer
 import org.simpleyaml.configuration.file.YamlFile
 import java.io.File
 

@@ -1,4 +1,4 @@
-package ltd.matrixstuidos.amber.configurations.node
+package ltd.matrixstudios.amber.configurations.node
 
 data class ConfigurationNode(
     val path: String,

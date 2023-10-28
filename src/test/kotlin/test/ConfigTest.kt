@@ -1,8 +1,8 @@
 package test
 
-import ltd.matrixstuidos.amber.AmberConfigurationService
-import ltd.matrixstuidos.amber.files.ResourceContainerService
-import ltd.matrixstuidos.amber.registry.AutomaticRegistrationService
+import ltd.matrixstudios.amber.AmberConfigurationService
+import ltd.matrixstudios.amber.files.ResourceContainerService
+import ltd.matrixstudios.amber.registry.AutomaticRegistrationService
 import org.junit.jupiter.api.Test
 
 class ConfigTest

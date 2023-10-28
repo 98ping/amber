@@ -1,7 +1,7 @@
-package ltd.matrixstuidos.amber.files
+package ltd.matrixstudios.amber.files
 
-import ltd.matrixstuidos.amber.AmberConfigurationService
-import ltd.matrixstuidos.amber.files.yaml.YamlResourceContainer
+import ltd.matrixstudios.amber.AmberConfigurationService
+import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
 
 object ResourceContainerService
 {

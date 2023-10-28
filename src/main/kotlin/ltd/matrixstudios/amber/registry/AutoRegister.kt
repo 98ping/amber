@@ -1,4 +1,4 @@
-package ltd.matrixstuidos.amber.registry
+package ltd.matrixstudios.amber.registry
 
 /**
  * Class created on 10/28/2023

@@ -1,9 +1,9 @@
 package test
 
-import ltd.matrixstuidos.amber.configurations.annotate.EntryName
-import ltd.matrixstuidos.amber.configurations.annotate.Path
-import ltd.matrixstuidos.amber.configurations.annotate.primitives.DefaultString
-import ltd.matrixstuidos.amber.registry.AutoRegister
+import ltd.matrixstudios.amber.configurations.annotate.EntryName
+import ltd.matrixstudios.amber.configurations.annotate.Path
+import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultString
+import ltd.matrixstudios.amber.registry.AutoRegister
 
 /**
  * Class created on 10/28/2023

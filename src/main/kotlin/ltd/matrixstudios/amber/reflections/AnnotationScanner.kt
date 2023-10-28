@@ -1,8 +1,8 @@
-package ltd.matrixstuidos.amber.reflections
+package ltd.matrixstudios.amber.reflections
 
-import ltd.matrixstuidos.amber.AmberConfigurationService
-import ltd.matrixstuidos.amber.configurations.AmberConfiguration
-import ltd.matrixstuidos.amber.registry.AutoRegister
+import ltd.matrixstudios.amber.AmberConfigurationService
+import ltd.matrixstudios.amber.configurations.AmberConfiguration
+import ltd.matrixstudios.amber.registry.AutoRegister
 import org.reflections.Reflections
 import org.reflections.scanners.Scanners
 import org.reflections.util.ConfigurationBuilder

@@ -1,4 +1,4 @@
-package ltd.matrixstuidos.amber.files
+package ltd.matrixstudios.amber.files
 
 interface ResourceContainer
 {

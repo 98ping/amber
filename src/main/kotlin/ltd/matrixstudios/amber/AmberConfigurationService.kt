@@ -1,10 +1,10 @@
-package ltd.matrixstuidos.amber
+package ltd.matrixstudios.amber
 
-import ltd.matrixstuidos.amber.configurations.AmberConfiguration
-import ltd.matrixstuidos.amber.files.ResourceContainerService
-import ltd.matrixstuidos.amber.files.yaml.YamlResourceContainer
-import ltd.matrixstuidos.amber.internals.InternalAmberConfiguration
-import ltd.matrixstuidos.amber.registry.AutomaticRegistrationService
+import ltd.matrixstudios.amber.configurations.AmberConfiguration
+import ltd.matrixstudios.amber.files.ResourceContainerService
+import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
+import ltd.matrixstudios.amber.internals.InternalAmberConfiguration
+import ltd.matrixstudios.amber.registry.AutomaticRegistrationService
 import java.io.File
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
@@ -21,12 +21,12 @@ object AmberConfigurationService
         debug: Boolean
     ) : InternalAmberConfiguration
     {
-        this.parentConfiguration = InternalAmberConfiguration(
+        parentConfiguration = InternalAmberConfiguration(
             path,
             parentPackage
         )
 
-        this.debugMode = debug
+        debugMode = debug
         AutomaticRegistrationService.onInitialScan()
 
         return parentConfiguration

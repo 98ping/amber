@@ -1,7 +1,7 @@
-package ltd.matrixstuidos.amber.registry
+package ltd.matrixstudios.amber.registry
 
-import ltd.matrixstuidos.amber.AmberConfigurationService
-import ltd.matrixstuidos.amber.reflections.AnnotationScanner
+import ltd.matrixstudios.amber.AmberConfigurationService
+import ltd.matrixstudios.amber.reflections.AnnotationScanner
 
 /**
  * Class created on 10/28/2023
