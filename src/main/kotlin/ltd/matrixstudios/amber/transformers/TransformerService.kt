@@ -1,7 +1,9 @@
 package ltd.matrixstudios.amber.transformers
 
+import com.google.gson.JsonObject
 import ltd.matrixstudios.amber.transformers.defaults.JsonObjectTransformer
 import ltd.matrixstudios.amber.transformers.defaults.URLTransformer
+import java.net.URL
 
 object TransformerService
 {
@@ -9,19 +11,16 @@ object TransformerService
 
     fun loadDefaults()
     {
-        listOf(
-            JsonObjectTransformer,
-            URLTransformer
-        ).forEach {
-            register(it)
-        }
+        register(URL::class.java, URLTransformer)
+        register(JsonObject::class.java, JsonObjectTransformer)
     }
 
     fun register(
+        clazz: Class<*>,
         transformer: Transformer<*>
     )
     {
-        transformers[transformer::class.java] = transformer
+        transformers[clazz] = transformer
     }
 
     fun exists(clazz: Class<*>) : Boolean =

@@ -6,6 +6,7 @@ import ltd.matrixstudios.amber.configurations.annotate.Intrinsic
 import ltd.matrixstudios.amber.configurations.annotate.Path
 import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultBoolean
 import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultInteger
+import java.net.URL
 
 interface PluginConfig
 {
@@ -23,4 +24,9 @@ interface PluginConfig
     @Intrinsic
     @DefaultBoolean(true)
     fun onJoeIsCool() : Boolean
+
+    @EntryName("joesWebsite")
+    @Intrinsic
+    @DefaultString("https://youtube.com")
+    fun onJoeWebsite() : URL
 }
