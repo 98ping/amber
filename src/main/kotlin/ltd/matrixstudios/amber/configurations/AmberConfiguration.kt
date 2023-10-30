@@ -7,14 +7,15 @@ import ltd.matrixstudios.amber.configurations.extension.key
 import ltd.matrixstudios.amber.configurations.extension.pathway
 import ltd.matrixstudios.amber.configurations.node.ConfigurationNode
 import ltd.matrixstudios.amber.files.ResourceContainer
-import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
+import ltd.matrixstudios.amber.transformers.TransformerService
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
 
 class AmberConfiguration(
     parent: Class<*>,
     val container: ResourceContainer
-) : InvocationHandler {
+) : InvocationHandler
+{
     private val nodes: MutableMap<Method, ConfigurationNode> = mutableMapOf()
 
     init
@@ -82,6 +83,23 @@ class AmberConfiguration(
             return container.get(node.getQualifiedPath(), String::class.java) ?: method.name
         } else
         {
+            if (TransformerService.exists(returnType))
+            {
+                val transformer = TransformerService.getTransformer(returnType)
+
+                val obj = transformer.fromString(
+                    container.get(
+                        node.getQualifiedPath(),
+                        String::class.java
+                    ) as String
+                )
+
+                if (obj != null)
+                {
+                    return obj
+                }
+            }
+
             if (returnType.isPrimitive)
             {
                 return container.get(node.getQualifiedPath(), returnType)

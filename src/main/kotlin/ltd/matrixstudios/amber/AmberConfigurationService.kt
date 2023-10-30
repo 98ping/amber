@@ -1,10 +1,14 @@
 package ltd.matrixstudios.amber
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.LongSerializationPolicy
 import ltd.matrixstudios.amber.configurations.AmberConfiguration
 import ltd.matrixstudios.amber.files.ResourceContainerService
 import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
 import ltd.matrixstudios.amber.internals.InternalAmberConfiguration
 import ltd.matrixstudios.amber.registry.AutomaticRegistrationService
+import ltd.matrixstudios.amber.transformers.TransformerService
 import java.io.File
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
@@ -14,6 +18,10 @@ object AmberConfigurationService
 {
     lateinit var parentConfiguration: InternalAmberConfiguration
     var debugMode by Delegates.notNull<Boolean>()
+    val GSON: Gson = GsonBuilder()
+        .serializeNulls()
+        .setLongSerializationPolicy(LongSerializationPolicy.STRING)
+        .create()
 
     fun make(
         path: String,
@@ -28,6 +36,7 @@ object AmberConfigurationService
 
         debugMode = debug
         AutomaticRegistrationService.onInitialScan()
+        TransformerService.loadDefaults()
 
         return parentConfiguration
     }
