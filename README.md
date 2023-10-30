@@ -1,6 +1,6 @@
 # <img width="253" alt="amberLogo" src="https://github.com/98ping/amber/assets/67809373/1693ad30-1cdd-49fd-88e2-70c384391a91">
 # Amber
-Amber is an annotation-based YAML library that utilizes interfaces to make clean configuration files.
+Amber is an annotation-based YAML library that utilizes interfaces to make clean configuration files. Amber has support for custom YAML type-transformers allowing you to use more than just primitive YAML-supported types in your configurations. You can create as many transformers as you would like. This feature makes amber feel more like a JSON-oriented configuration system than YAML.
 
 # Usage
 
