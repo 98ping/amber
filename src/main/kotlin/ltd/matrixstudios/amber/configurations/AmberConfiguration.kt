@@ -2,11 +2,13 @@ package ltd.matrixstudios.amber.configurations
 
 import ltd.matrixstudios.amber.configurations.annotate.Intrinsic
 import ltd.matrixstudios.amber.configurations.annotate.Path
+import ltd.matrixstudios.amber.configurations.annotate.section.Section
 import ltd.matrixstudios.amber.configurations.extension.default
 import ltd.matrixstudios.amber.configurations.extension.key
 import ltd.matrixstudios.amber.configurations.extension.pathway
 import ltd.matrixstudios.amber.configurations.node.ConfigurationNode
 import ltd.matrixstudios.amber.files.ResourceContainer
+import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
 import ltd.matrixstudios.amber.transformers.TransformerService
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
@@ -77,6 +79,29 @@ class AmberConfiguration(
         }
 
         val returnType = method.returnType
+
+        if (method.isAnnotationPresent(Section::class.java))
+        {
+            val returnIsList = Collection::class.java.isAssignableFrom(returnType)
+
+            if (!returnIsList)
+            {
+                throw IllegalArgumentException(
+                    "In order to interpret sections, you need to return Collection<String>"
+                )
+            }
+
+            val path = method.getDeclaredAnnotation(Section::class.java).sectionPath
+
+            if (container !is YamlResourceContainer)
+            {
+                throw IllegalArgumentException(
+                    "Cannot interpret a configuration section on a Non-YAML container."
+                )
+            }
+
+            return container.mapping.getConfigurationSection(path).getKeys(false)
+        }
 
         if (returnType.simpleName == String::class.simpleName)
         {

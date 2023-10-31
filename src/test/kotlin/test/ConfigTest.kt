@@ -30,5 +30,11 @@ class ConfigTest
         println(joeConfig.onJoeSatisfaction())
         println(joeConfig.onJoeIsCool())
         println(joeConfig.onJoeWebsite().host)
+
+        val reviews = joeConfig.onSection()
+
+        reviews.forEach {
+            println(it)
+        }
     }
 }
