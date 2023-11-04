@@ -37,7 +37,7 @@ object WriterComposite {
             )
         }
 
-        // Iterate through 
+        // Iterate through
         var keyIndex: Int = -1
 
         for (index in method.parameters.indices)
