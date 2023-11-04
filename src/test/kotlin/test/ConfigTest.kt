@@ -11,7 +11,7 @@ class ConfigTest
     fun test2()
     {
         val config = AmberConfigurationService.make(
-            "C:\\Users\\Maximus\\Desktop\\Matrix Development\\amber",
+            "C:\\Users\\User\\Desktop\\amber",
             "test",
             true
         )
@@ -30,6 +30,8 @@ class ConfigTest
         println(joeConfig.onJoeSatisfaction())
         println(joeConfig.onJoeIsCool())
         println(joeConfig.onJoeWebsite().host)
+
+        joeConfig.onSetJoeOperation("awesomeJoe", 122)
 
         val reviews = joeConfig.onSection()
 

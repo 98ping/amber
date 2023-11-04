@@ -8,5 +8,6 @@ package ltd.matrixstudios.amber.writers
  * @website https://solo.to/redis
  */
 annotation class Writer(
-    val path: String
+    val path: String = "",
+    val intrinsic: Boolean = true
 )

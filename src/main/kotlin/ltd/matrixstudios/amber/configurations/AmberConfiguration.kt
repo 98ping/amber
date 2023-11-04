@@ -10,6 +10,8 @@ import ltd.matrixstudios.amber.configurations.node.ConfigurationNode
 import ltd.matrixstudios.amber.files.ResourceContainer
 import ltd.matrixstudios.amber.files.yaml.YamlResourceContainer
 import ltd.matrixstudios.amber.transformers.TransformerService
+import ltd.matrixstudios.amber.writers.Writer
+import ltd.matrixstudios.amber.writers.WriterComposite
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Method
 
@@ -51,14 +53,18 @@ class AmberConfiguration(
 
     fun initiallyLoadAllResources()
     {
-        for (node in nodes)
-        {
+        for (node in nodes) {
             val config = node.value
 
-            container.set(
-                config.getQualifiedPath(),
-                config.default
-            )
+            if (node.key.isAnnotationPresent(Writer::class.java)) continue
+
+            if (!node.key.isAnnotationPresent(Section::class.java))
+            {
+                container.set(
+                    config.getQualifiedPath(),
+                    config.default
+                )
+            }
         }
 
         println("[Amber] [Debug] Loaded all resources because the file did not exist!")
@@ -100,7 +106,35 @@ class AmberConfiguration(
                 )
             }
 
-            return container.mapping.getConfigurationSection(path).getKeys(false)
+            val section = container.mapping.getConfigurationSection(path)
+                ?: return emptyList<String>()
+
+            return section.getKeys(false)
+        }
+
+        if (method.isAnnotationPresent(Writer::class.java))
+        {
+            if (container !is YamlResourceContainer)
+            {
+                throw IllegalArgumentException(
+                    "Cannot interpret a configuration section on a Non-YAML container."
+                )
+            }
+
+            if (args == null || args.isEmpty())
+            {
+                throw IllegalArgumentException(
+                    "Arguments provided were null or empty!"
+                )
+            }
+
+            WriterComposite.handle(
+                method,
+                args,
+                container
+            )
+
+            return true
         }
 
         if (returnType.simpleName == String::class.simpleName)

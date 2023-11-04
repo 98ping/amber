@@ -7,6 +7,9 @@ import ltd.matrixstudios.amber.configurations.annotate.Path
 import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultBoolean
 import ltd.matrixstudios.amber.configurations.annotate.primitives.DefaultInteger
 import ltd.matrixstudios.amber.configurations.annotate.section.Section
+import ltd.matrixstudios.amber.writers.Writer
+import ltd.matrixstudios.amber.writers.components.Body
+import ltd.matrixstudios.amber.writers.components.Key
 import java.net.URL
 
 interface PluginConfig
@@ -30,6 +33,10 @@ interface PluginConfig
     @Intrinsic
     @DefaultString("https://youtube.com")
     fun onJoeWebsite() : URL
+
+    @Writer("customers.setOperation")
+    @Intrinsic
+    fun onSetJoeOperation(@Key key: String, @Body joeCount: Int) : Boolean
 
     // ensure amber understands the section.
     @Intrinsic
