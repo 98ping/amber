@@ -37,7 +37,7 @@ object WriterComposite {
             )
         }
 
-        // Iterate through
+        // Iterate through params and check for Key annotation
         var keyIndex: Int = -1
 
         for (index in method.parameters.indices)
@@ -55,6 +55,7 @@ object WriterComposite {
                 .toString()
         }
 
+        // Find body to set the key to
         val bodyParameter = method.parameters
             .firstOrNull { it.isAnnotationPresent(Body::class.java) }
             ?: throw IllegalArgumentException(
@@ -64,6 +65,7 @@ object WriterComposite {
         val bodyLocation =
             method.parameters.indexOf(bodyParameter)
 
+        // Push to YAML
         container.set(
             if (writerDestination.intrinsic) keyId else "${writerDestination.path}.$keyId",
             args[bodyLocation]
