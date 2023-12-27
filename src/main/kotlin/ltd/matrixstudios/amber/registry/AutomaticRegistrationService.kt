@@ -1,8 +1,5 @@
 package ltd.matrixstudios.amber.registry
 
-import ltd.matrixstudios.amber.AmberConfigurationService
-import ltd.matrixstudios.amber.reflections.AnnotationScanner
-
 /**
  * Class created on 10/28/2023
 
@@ -12,21 +9,6 @@ import ltd.matrixstudios.amber.reflections.AnnotationScanner
  */
 object AutomaticRegistrationService {
     private val registeredConfigurations: MutableMap<Class<*>, Any> = mutableMapOf()
-
-    fun onInitialScan()
-    {
-        val classes = AnnotationScanner.target(AutoRegister::class.java)
-
-        for (clazz in classes)
-        {
-            val createdConfiguration =
-                    AmberConfigurationService.from(
-                        clazz, "${clazz.simpleName}.yaml"
-                    )
-
-            registeredConfigurations[clazz] = createdConfiguration
-        }
-    }
 
     @Suppress("UNCHECKED_CAST")
     fun <T> get(
