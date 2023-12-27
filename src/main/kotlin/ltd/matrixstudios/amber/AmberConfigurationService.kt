@@ -35,12 +35,6 @@ object AmberConfigurationService
         )
 
         debugMode = debug
-
-        if (debug)
-        {
-            AutomaticRegistrationService.onInitialScan()
-        }
-
         TransformerService.loadDefaults()
 
         return parentConfiguration
