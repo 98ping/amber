@@ -42,7 +42,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "ltd.matrixstudios"
             artifactId = "amber"
-            version = "1.0.0"
+            version = "1.1.0"
             from(components["java"])
         }
     }
