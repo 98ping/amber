@@ -11,7 +11,7 @@ class ConfigTest
     fun test2()
     {
         val config = AmberConfigurationService.make(
-            "C:\\Users\\User\\Desktop\\amber",
+            "C:\\Users\\Maximus\\Desktop\\Matrix Development\\amber",
             "test",
             true
         )
@@ -20,9 +20,6 @@ class ConfigTest
             PluginConfig::class.java, "test.yaml"
         )
         val rawContainer = ResourceContainerService.get(PluginConfig::class.java)
-        val fetched = AutomaticRegistrationService.get<OtherConfig>(OtherConfig::class.java)
-
-        println(fetched.onFooBar())
 
         println("Raw fetch: ${rawContainer.get("customers.joeSatisfactions", Integer::class.java)}")
 
